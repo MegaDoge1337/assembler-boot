@@ -82,7 +82,7 @@
 - number__of__printers__attached - проверка количества подклчючённых принтеров
 - number__of__printers__attached__out - вывод префикса
 - number__of__printers__attached__value__out - вывод значения
-- card__map__header - вывод заголока для таблицы секторов карты памяти
+- card__map__header - вывод заголовка для таблицы секторов карты памяти
 - card__map__read__start - подготовка к получению информации о секторах
 - card__map__reading - получение информации о секторах при помощи int 0x15 ax = 0E820h
 - base__addr__high__out - вывод BaseAddrHigh
