@@ -32,7 +32,12 @@ jmp ints__install
 off__08h equ 08h*4
 
 timer__int:
+        xchg bx, bx
+        xor dx, dx
+        xor eax, eax
         mov ax, [timer__value]
+        mov bx, 182
+        div bx
         xor cx, cx
         mov cx, 6
 
@@ -47,8 +52,8 @@ convert__timer__value:
 
         xor si, si
         xor cx, cx
-        mov ch, 007h
-        mov bx, 094h
+        mov ch, 017h
+        mov bx, 092h
 
 timer__value__out:
         mov cl, [timer__value__string + si]
@@ -61,10 +66,10 @@ timer__value__out:
         inc si
         add bx, 02h
     
-        cmp si, 6
+        cmp si, 7
         jne timer__value__out
 
-        add [timer__value], 1
+        add [timer__value], 10
         mov al, 20h
         out 20h, al
         iret
@@ -75,7 +80,7 @@ keyboard__int:
         xchg bx, bx
 
         in al, 060h
-        cmp al, 0C6h
+        cmp al, 0C5h
         je reboot
         jne no__reboot
 
@@ -91,7 +96,7 @@ no__reboot:
         mov bx, xlat__table
         xlatb
 
-        mov ch, 007h
+        mov ch, 017h
         mov bx, 13Ch
         mov cl, al
         push ds
@@ -107,7 +112,7 @@ no__reboot:
         mov bx, xlat__table
         xlatb
 
-        mov ch, 007h
+        mov ch, 017h
         mov bx, 13Eh
         mov cl, al
         push ds
@@ -166,7 +171,7 @@ clear__display:
         xor cx, cx
         xor si, si
         mov bx, 0h
-        mov ch, 007h
+        mov ch, 017h
 
 welcome:
         mov cl, [welcome__message + si]
@@ -1789,7 +1794,7 @@ type__udf__len=$-type__udf
 old__offset__08h dw 0
 old__segment__08h dw 0
 timer__value dw 0
-timer__value__string db ''
+timer__value__string db 6 dup(?)
 
 ; keyboard
 old__offset__09h dw 0
