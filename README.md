@@ -1,4 +1,4 @@
-# MDBoot (boot-file) 💾
+# MDBoot (boot-file) 💾 [ru - My native]
 ## Запуск эмулятора ⚡
 Репозиторий уже включает все необходимые файлы. Чтобы запустить загрузчик:
 - Запустите файл "bochs.exe"
@@ -118,7 +118,7 @@
 
 Переменные old__offset и old__segment предназначены для хранения данных о прерываниях 08h и 09h, которые были заменены в начале выполнения загрузчика.
 
-# MDBoot (boot-file) 💾 [en - Google Translater]
+# MDBoot (boot-file) 💾 [en - thanks, Google Translater]
 ## Launch the emulator ⚡
 The repository already includes all the required files. To start the bootloader:
 - Run the file "bochs.exe"
